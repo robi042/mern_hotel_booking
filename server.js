@@ -7,12 +7,14 @@ import auth_router from './rotues/auth.js'
 import user_router from './rotues/users.js'
 import hotel_router from './rotues/hotels.js'
 import room_router from './rotues/rooms.js'
+import cookieParse from "cookie-parser"
 dotenv.config()
 
 
 
 const app = Express();
 app.use(Express.json())
+app.use(cookieParse())
 
 const port = process.env.PORT || 8000
 
