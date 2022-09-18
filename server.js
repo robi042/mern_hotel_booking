@@ -1,4 +1,4 @@
-console.log(" ############################ Khelo SERVER BOOT ############################ ");
+console.log(" ############################ HOTEL BOOKING SERVER BOOT ############################ ");
 
 import Express from "express";
 import dotenv from 'dotenv'
@@ -65,7 +65,7 @@ app.use((err, req, res, next) =>{
 
 app.listen(port,()=>{
       connect()
-      console.log(`Khelo are listening on port ${port}`);
+      console.log(`Hotel booking are listening on port ${port}`);
 });
 
 
