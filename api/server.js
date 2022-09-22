@@ -8,6 +8,7 @@ import user_router from './rotues/users.js'
 import hotel_router from './rotues/hotels.js'
 import room_router from './rotues/rooms.js'
 import cookieParse from "cookie-parser"
+import cors from "cors"
 dotenv.config()
 
 
@@ -15,6 +16,7 @@ dotenv.config()
 const app = Express();
 app.use(Express.json())
 app.use(cookieParse())
+//app.use(cors)
 
 const port = process.env.PORT || 8000
 
