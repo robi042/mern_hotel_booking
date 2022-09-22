@@ -46,21 +46,23 @@ app.use('/api/users', user_router)
 app.use('/api/hotels', hotel_router)
 app.use('/api/rooms', room_router)
 
+app.use((err, req, res, next) =>{
+      const errStatus = err.status || 500
+      const errMessage = err.message || 'Something went wrong!'
+      return res.status(errStatus).json({
+            Success: false,
+            Status: errStatus,
+            Message: errMessage,
+            Stack: err.stack
+      });
+});
+
 app.use('*', (req, res) =>{
       res.status(404).json({error: 'Not found'})
 })
 
 
-app.use((err, req, res, next) =>{
-      const errStatus = err.status || 500
-      const errMessage = err.errMessage || 'Something went wrong!'
-      return res.status(errStatus).json({
-            Success: false,
-            Status: errStatus,
-            Message: errMessage,
-            Stack: err.Stack
-      })
-})
+
       
 
 app.listen(port,()=>{
